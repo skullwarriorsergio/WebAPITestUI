@@ -3,13 +3,13 @@ import React, { useEffect, useState }  from "react"
 import styles from '../styles/Home.module.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-const AddGateways = (props) => { 
+const AddGateways = (props:any) => { 
     const [objects, setObjects] = useState<any[]>([])
 
-    const registerGateway = async (event) => {
+    const registerGateway = async (event:any) => {
       event.preventDefault()
   
-      const res = await fetch('https://localhost:44343/api/Gateways', {
+      const res = await fetch(`https://${process.env.apiIP}:${process.env.apiPort}/api/Gateways`, {
         body: JSON.stringify({
             SerialNumber: event.target.serialnumber.value,
             Name: event.target.name.value,

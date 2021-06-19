@@ -5,15 +5,15 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-const AddDevices = (props) => { 
+const AddDevices = (props:any) => { 
     const [objects, setObjects] = useState<any[]>([])
     const [startDate, setStartDate] = useState(new Date());
     const [checked, setChecked] = useState(false);
 
-    const registerDevice = async (event) => {
+    const registerDevice = async (event:any) => {
       event.preventDefault()
  
-      const res = await fetch(`https://localhost:44343/api/Gateways/${props.gateway}/Devices`, {
+      const res = await fetch(`https://${process.env.apiIP}:${process.env.apiPort}/api/Gateways/${props.gateway}/Devices`, {
         body: JSON.stringify({
             UID: event.target.uid.valueAsNumber,
             Vendor: event.target.vendor.value,
@@ -64,7 +64,7 @@ const AddDevices = (props) => {
             <tr>
                 <th>Date created:</th>
                 <th>
-                    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+                    <DatePicker selected={startDate} onChange={(date: Date | null) => date && setStartDate(date)} />
                 </th>                           
             </tr>
             <tr>

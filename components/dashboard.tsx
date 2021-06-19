@@ -7,7 +7,7 @@ import AddDevice from '../components/adddevices'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
-const AddGateways = (props) => { 
+const Dashboard = (props:any) => { 
     const [objects, setObjects] = useState<any>(0)
     const [selectedGateway, setSelectedGateway] = useState<string>('<<Select a gateway>>')
 
@@ -40,4 +40,4 @@ const AddGateways = (props) => {
         </main>
     )
   }
-export default AddGateways
+export default Dashboard

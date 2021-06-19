@@ -8,7 +8,7 @@ import Image from 'next/image'
 import deletePic from '../public/delete.png'
 
 
-const Gateways = (props) => { 
+const Gateways = (props:any) => { 
  const [objects, setObjects] = useState<any[]>([])
 
   
@@ -29,7 +29,7 @@ const Gateways = (props) => {
 
 function DeleteGateway(serial:string)
 {
-  fetch(`https://localhost:44343/api/Gateways/${serial}`,
+  fetch(`https://${process.env.apiIP}:${process.env.apiPort}/api/Gateways/${serial}`,
    {
      method: 'DELETE',headers: 
      {

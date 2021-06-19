@@ -9,7 +9,7 @@ const Devices = (props: any) => {
  
  useEffect(() => {
    //Creas una promesa con la petición y metes el result en el state
-   fetch(`https://localhost:44343/api/Gateways/${props.serial}/Devices`,
+   fetch(`https://${process.env.apiIP}:${process.env.apiPort}/api/Gateways/${props.serial}/Devices`,
    {
      method: 'Get',headers: 
      {
