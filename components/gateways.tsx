@@ -7,9 +7,11 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image'
 import deletePic from '../public/delete.png'
 
+
 const Gateways = (props) => { 
  const [objects, setObjects] = useState<any[]>([])
- 
+
+  
  useEffect(() => {
    //Creas una promesa con la petición y metes el result en el state
    fetch('https://localhost:44343/api/Gateways',
@@ -53,7 +55,7 @@ return (
       <Card>
          <Accordion.Toggle as={Card.Header} variant="link" eventKey={index.toString()}>
            <div className={styles.cardHeader}>
-             <p className={styles.cardHeaderText}>SN: {item.serialNumber}</p>
+             <p className={styles.cardHeaderText}>SN:{item.serialNumber} / Name:&quot;{item.name}&quot; / IP:{item.ip}</p>
              <div className={styles.elementholder}
                 onClick={(e) => 
                   {

@@ -89,13 +89,23 @@
   text-decoration: none;
   border: 1px solid #eaeaea;
   border-radius: 10px;
-  width: 350px;
+  width: 100%;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .cardHeader {
   display: inline-block;
   width: 100%;
+}
+
+.section {
+  margin: 10px;
+  width: 30%;
+}
+
+.sectionBig {
+  margin: 10px;
+  width: 40%;
 }
 
 .elementholder {

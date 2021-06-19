@@ -2,8 +2,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Gateways from '../components/gateways'
+import AddGateway from '../components/addgateways'
 
 import { Accordion, Button, Card } from 'react-bootstrap';
+import { LoadedEntrypointSuccess } from 'next/dist/client/route-loader';
 
 export default function Home() {
   return (
@@ -18,12 +20,21 @@ export default function Home() {
           Welcome to a gateway handling system
       </h1>
       <main className={styles.main}>
-        <div>
+        <div className={styles.sectionBig}>
           <p className={styles.code}>Gateways list</p>
           <div className={styles.listgroup}>            
           <Gateways /> 
           </div>                  
-        </div>        
+        </div>  
+        <div className={styles.section}>
+          <p className={styles.code}>Adding Gateways</p>
+          <AddGateway />
+        </div>
+        <div className={styles.section}>
+          <p className={styles.code}>Adding Devices</p>
+          <div className={styles.listgroup}>
+          </div>                  
+        </div>  
       </main>
 
       <footer className={styles.footer}>
