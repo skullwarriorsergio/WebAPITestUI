@@ -25,7 +25,7 @@ const Gateways = (props) => {
     {
       setObjects(result);
     }).catch(err => {})
- },[]);
+ },[props.update]);
 
 function DeleteGateway(serial:string)
 {
@@ -40,10 +40,11 @@ function DeleteGateway(serial:string)
       console.log(r);
       if (r.ok)
       {
+        props.selectGateway('<<Select a gateway>>');
         r.json().then(v => 
         {
           const a = objects.filter((item) => item.serialNumber != v);         
-          setObjects(a);
+          setObjects(a);          
         });
       }
     }).catch(err => {})
@@ -54,7 +55,10 @@ return (
       {objects.map((item, index) =>
       <Card>
          <Accordion.Toggle as={Card.Header} variant="link" eventKey={index.toString()}>
-           <div className={styles.cardHeader}>
+           <div className={styles.cardHeader} onClick={(e) => 
+                  {
+                    props.selectGateway(item.serialNumber);
+                  }}>
              <p className={styles.cardHeaderText}>SN:{item.serialNumber} / Name:&quot;{item.name}&quot; / IP:{item.ip}</p>
              <div className={styles.elementholder}
                 onClick={(e) => 

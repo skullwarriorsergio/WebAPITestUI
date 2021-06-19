@@ -6,10 +6,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 const AddGateways = (props) => { 
     const [objects, setObjects] = useState<any[]>([])
 
-    const registerUser = async (event) => {
+    const registerGateway = async (event) => {
       event.preventDefault()
-
-      console.log(event.target);
   
       const res = await fetch('https://localhost:44343/api/Gateways', {
         body: JSON.stringify({
@@ -22,10 +20,10 @@ const AddGateways = (props) => {
         },
         method: 'POST'
       })
-      console.log(res);  
       if (res.status == 201)
       {
         const result = await res.json();
+        props.doNotify(result);
       }else if (res.status == 400)
       {
           alert("Wrong IP");
@@ -42,7 +40,7 @@ const AddGateways = (props) => {
   
     return (
     <>
-      <form onSubmit={e => registerUser(e)}>
+      <form onSubmit={e => registerGateway(e)}>
         <table className={styles.listgroup}>
             <tr>
                 <th>Serial Number:</th>
@@ -68,6 +66,5 @@ const AddGateways = (props) => {
     </>
     )
   }
-
-  export default AddGateways
+export default AddGateways
   

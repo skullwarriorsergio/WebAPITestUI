@@ -3,8 +3,8 @@
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: stretch;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 
@@ -46,8 +46,8 @@
 
 .title {
   margin: 0;
-  height: 20%;
-  vertical-align: top;
+  height: 30px;
+  justify-content: center;
   line-height: 1.15;
   font-size: 4rem;
 }
@@ -71,6 +71,10 @@
   cursor: pointer;
 }
 
+.device {
+  margin-left: 15px;
+}
+
 .code {
   background: #fafafa;
   border-radius: 5px;
@@ -82,7 +86,7 @@
 }
 
 .listgroup {
-  margin: 1rem;
+  margin: 10px;
   padding: 1.5rem;
   text-align: left;
   color: inherit;

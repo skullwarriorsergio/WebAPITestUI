@@ -53,7 +53,7 @@ return (
     <ul>{objects.map((item, index) =>
       <li className={styles.item} >
         <div className={styles.cardHeader}>
-              <p className={styles.cardHeaderText}>Device UID: {item.uid}</p>
+              <p className={styles.cardHeaderText}>UID:{item.uid} / Vendor: {item.vendor} / Status: {item.status == 1? "Off" : "On"}</p>
               <div className={styles.elementholder}
                 onClick={(e) => 
                   {
