@@ -20,7 +20,7 @@ export default function Home() {
       <main className={styles.main}>
         <div>
           <p className={styles.code}>Gateways list</p>
-          <div className={styles.listgroup}>
+          <div className={styles.listgroup}>            
           <Gateways /> 
           </div>                  
         </div>        
