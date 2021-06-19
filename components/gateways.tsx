@@ -13,8 +13,7 @@ const Gateways = (props:any) => {
 
   
  useEffect(() => {
-   //Creas una promesa con la petición y metes el result en el state
-   fetch('https://localhost:44343/api/Gateways',
+   fetch(`https://${process.env.NEXT_PUBLIC_apiIP}:${process.env.NEXT_PUBLIC_apiPort}/api/Gateways`,
    {
      method: 'Get',headers: 
      {
@@ -29,7 +28,7 @@ const Gateways = (props:any) => {
 
 function DeleteGateway(serial:string)
 {
-  fetch(`https://${process.env.apiIP}:${process.env.apiPort}/api/Gateways/${serial}`,
+  fetch(`https://${process.env.NEXT_PUBLIC_apiIP}:${process.env.NEXT_PUBLIC_apiPort}/api/Gateways/${serial}`,
    {
      method: 'DELETE',headers: 
      {

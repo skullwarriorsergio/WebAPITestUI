@@ -13,7 +13,7 @@ const AddDevices = (props:any) => {
     const registerDevice = async (event:any) => {
       event.preventDefault()
  
-      const res = await fetch(`https://${process.env.apiIP}:${process.env.apiPort}/api/Gateways/${props.gateway}/Devices`, {
+      const res = await fetch(`https://${process.env.NEXT_PUBLIC_apiIP}:${process.env.NEXT_PUBLIC_apiPort}/api/Gateways/${props.gateway}/Devices`, {
         body: JSON.stringify({
             UID: event.target.uid.valueAsNumber,
             Vendor: event.target.vendor.value,

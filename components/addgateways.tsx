@@ -9,7 +9,7 @@ const AddGateways = (props:any) => {
     const registerGateway = async (event:any) => {
       event.preventDefault()
   
-      const res = await fetch(`https://${process.env.apiIP}:${process.env.apiPort}/api/Gateways`, {
+      const res = await fetch(`https://${process.env.NEXT_PUBLIC_apiIP}:${process.env.NEXT_PUBLIC_apiPort}/api/Gateways`, {
         body: JSON.stringify({
             SerialNumber: event.target.serialnumber.value,
             Name: event.target.name.value,
