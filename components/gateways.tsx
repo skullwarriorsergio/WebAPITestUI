@@ -1,5 +1,9 @@
+/* eslint-disable react/jsx-key */
 import React, { useEffect, useState }  from "react"
 import styles from '../styles/Home.module.css'
+import { Accordion, Button, Card } from 'react-bootstrap';
+import Devices from './devices'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const Gateways = (props) => { 
  const [objects, setObjects] = useState<any[]>([])
@@ -19,14 +23,21 @@ const Gateways = (props) => {
     }).catch(err => {})
  },[]);
 
-function GatewayClick(serial:string)
-{
-}
-
-
 return (
-    // eslint-disable-next-line react/jsx-key
-    <ul>{objects.map((item, index) => <li className={styles.item} onClick={() => GatewayClick(item.serialNumber)}>Serial Number: {item.serialNumber}</li>)}</ul>    
+    <Accordion>      
+      {objects.map((item, index) =>
+      <Card>
+         <Accordion.Toggle as={Card.Header} variant="link" eventKey={index.toString()}>
+            SN: {item.serialNumber} - {index.toString()}
+          </Accordion.Toggle>
+        <Accordion.Collapse eventKey={index.toString()}>
+          <Card.Body>
+            <Devices serial={item.serialNumber}/>
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card>
+      )}
+    </Accordion>    
   ) 
 }
 

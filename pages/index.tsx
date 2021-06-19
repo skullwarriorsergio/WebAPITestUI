@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Gateways from '../components/Gateways'
-import Devices from '../components/devices'
+import Gateways from '../components/gateways'
+
+import { Accordion, Button, Card } from 'react-bootstrap';
 
 export default function Home() {
   return (
@@ -19,16 +20,10 @@ export default function Home() {
       <main className={styles.main}>
         <div>
           <p className={styles.code}>Gateways list</p>
-          <div className={styles.card}>
+          <div className={styles.listgroup}>
           <Gateways /> 
           </div>                  
-        </div>
-        <div>
-          <p className={styles.code}>Devices list</p>
-          <div className={styles.card}>
-          <Devices /> 
-          </div>                  
-        </div>
+        </div>        
       </main>
 
       <footer className={styles.footer}>
