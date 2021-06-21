@@ -17,5 +17,5 @@ By default NextJS run on port 3000, if you need to change this modify package.js
 
 To build the UI for production run the build scripts
 
-npm run buid
+npm run build
 
